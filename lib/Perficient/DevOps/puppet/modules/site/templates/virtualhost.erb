@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+    DocumentRoot "/var/www/<%= @PROJECT %>-<%= @ENVIRONMENT %>.local"
+    ServerName <%= @PROJECT %>-<%= @ENVIRONMENT %>.local
+    ErrorLog "logs/<%= @PROJECT %>-<%= @ENVIRONMENT %>.local-error.log"
+    CustomLog "logs/<%= @PROJECT %>-<%= @ENVIRONMENT %>.local-access.log" common
+    <Directory "/var/www/<%= @PROJECT %>-<%= @ENVIRONMENT %>.local">
+        Options FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
