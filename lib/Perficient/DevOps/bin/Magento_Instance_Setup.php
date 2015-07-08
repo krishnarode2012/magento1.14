@@ -190,6 +190,7 @@ class Magento_Instance_Setup
         $cmd[] = '--admin_username "admin"';
         $cmd[] = '--admin_password "mag3nt0"';
         $cmd[] = '--admin_frontname "zpanel"';
+        $cmd[] = '--session_save "db"';
         $this->_run(implode(' ', $cmd));
     }
     

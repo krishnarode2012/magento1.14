@@ -28,11 +28,17 @@ class site {
         require => Package['unzip']
 	}
     
+    exec { 'reload-apache':
+        command => 'sudo service httpd reload',    
+        path => ['/usr/bin', '/usr/sbin', '/bin'],
+        require => File['create-virtualhost']
+    }
+    
     file { 'create-database-and-user-sql':
 	    ensure => 'file',
         path => '/tmp/create_database_and_user.sql',
 	    content => template('site/create_database_and_user.erb'),
-        require => File['create-virtualhost']
+        require => Exec['reload-apache']
 	}
     
     exec { 'create-database-and-user':
