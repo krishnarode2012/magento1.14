@@ -1,16 +1,7 @@
 class site {
-	package { 'sshpass':
-        ensure => 'present'
-    }
-    
-    package { 'unzip':
-        ensure => 'present',
-        require => Package['sshpass']
-    }
-    
     file { '/var/www':
         ensure => 'directory',
-        require => Package['unzip']
+        require => Exec['restart-mysql']
     }
     
     file { "/var/www/${PROJECT}-${ENVIRONMENT}.local":
@@ -23,7 +14,6 @@ class site {
         ensure => 'file',        
         path => "/etc/httpd/conf.d/${PROJECT}-${ENVIRONMENT}.local.conf",
         content => template('site/virtualhost.erb'),
-        notify => Service['httpd'],
         require => File["/var/www/${PROJECT}-${ENVIRONMENT}.local"]
 	}
     
