@@ -1,7 +1,6 @@
 class site {
 	package { 'sshpass':
-        ensure => 'present',
-        require => Exec['restart-mysql']
+        ensure => 'present'
     }
     
     package { 'unzip':
@@ -25,7 +24,7 @@ class site {
         path => "/etc/httpd/conf.d/${PROJECT}-${ENVIRONMENT}.local.conf",
         content => template('site/virtualhost.erb'),
         notify => Service['httpd'],
-        require => Package['unzip']
+        require => File["/var/www/${PROJECT}-${ENVIRONMENT}.local"]
 	}
     
     exec { 'reload-apache':

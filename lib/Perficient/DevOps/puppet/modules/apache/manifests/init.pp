@@ -1,6 +1,7 @@
 class apache {
 	package { 'httpd':
-        ensure => 'present'
+        ensure => 'present',
+        require => Service['iptables']
     }
 
     service { 'httpd':
