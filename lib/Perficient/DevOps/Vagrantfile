@@ -5,7 +5,7 @@ Vagrant.configure(2) do |config|
   else
     config.vm.box_url = '\\\\172.16.0.9\\Magento\\Vagrant\\Boxes\\CentOS-6.6-64-V1.box'
   end
-  config.vm.synced_folder '../../../', '/vagrant'
+  config.vm.synced_folder '../../../', '/vagrant', type: 'rsync', rsync__exclude: '.git/'
   config.vm.network 'private_network', ip: '192.168.56.110', netmask: '255.255.0.0'
   
   config.vm.provider 'virtualbox' do |v|
