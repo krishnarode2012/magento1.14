@@ -37,13 +37,13 @@ class site {
     }
 	
 	exec { 'download-code-package':
-        command => "sudo sshpass -p 'mag3nt0' scp -o \"StrictHostKeyChecking no\" magento@172.16.0.45:/home/magento/releases/${MAGENTO_VERSION}/${CODE_PACKAGE} /tmp",    
+        command => "sudo sshpass -p '${SCP_PASS}' scp -o \"StrictHostKeyChecking no\" ${SCP_USER}@${SCP_HOST}:/home/magento/releases/${MAGENTO_VERSION}/${CODE_PACKAGE} /tmp",    
         path => ['/usr/bin', '/usr/sbin', '/bin'],
         require => Exec['create-database-and-user']
     }
     
     exec { 'download-sample-data':
-        command => "sudo sshpass -p 'mag3nt0' scp -o \"StrictHostKeyChecking no\" magento@172.16.0.45:/home/magento/releases/${MAGENTO_VERSION}/${SAMPLE_DATA} /tmp", 			
+        command => "sudo sshpass -p '${SCP_PASS}' scp -o \"StrictHostKeyChecking no\" ${SCP_USER}@${SCP_HOST}:/home/magento/releases/${MAGENTO_VERSION}/${SAMPLE_DATA} /tmp", 			
         path => ['/usr/bin', '/usr/sbin', '/bin'],
         timeout => 3600,
         require => Exec['download-code-package']
