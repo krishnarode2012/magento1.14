@@ -1,7 +1,7 @@
 class php {
     package { 'php':
         ensure => 'present',
-        require => Service['httpd']
+        require => Service['nginx']
     }
     
     package { 'php-fpm':
@@ -48,5 +48,11 @@ class php {
     package { 'php55u-intl':
         ensure => 'present',
         require => Package['php55u-soap']
+    }
+    
+    service { 'php-fpm':
+        enable => 'true',
+        ensure  => 'running',
+        require => Package['php55u-intl']
     }
 }

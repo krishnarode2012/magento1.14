@@ -1,12 +1,12 @@
-class apache {
-	package { 'httpd':
+class nginx {
+	package { 'nginx':
         ensure => 'present',
         require => Package['unzip']
     }
 
-    service { 'httpd':
+    service { 'nginx':
         enable => 'true',
         ensure  => 'running',
-        require => Package['httpd']
+        require => Package['nginx']
     }
 }

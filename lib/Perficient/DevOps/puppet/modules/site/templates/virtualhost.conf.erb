@@ -1,0 +1,69 @@
+server {
+    listen 80;
+    server_name <%= @PROJECT %>-<%= @ENVIRONMENT %>.local;
+    root /var/www/<%= @PROJECT %>-<%= @ENVIRONMENT %>.local;
+    
+    access_log /var/log/nginx/<%= @PROJECT %>-<%= @ENVIRONMENT %>.local.access.log;
+    error_log /var/log/nginx/<%= @PROJECT %>-<%= @ENVIRONMENT %>.local.error.log;
+    
+    client_body_buffer_size 8k;
+    client_max_body_size 10M;
+    client_header_buffer_size 1k;
+    large_client_header_buffers 4 16k;
+
+    if ($server_port = 80) { set $httpss off; }
+
+    location /
+    {
+        index index.html index.php; ## Allow a static html file to be shown first
+        try_files $uri $uri/ @handler; ## If missing pass the URI to Magento's front handler
+        expires 30d; ## Assume all files are cachable
+    }
+
+    ## These locations would be hidden by .htaccess normally
+    location /app/                { deny all; }
+    location /includes/           { deny all; }
+    location /lib/                { deny all; }
+    location /media/downloadable/ { deny all; }
+    location /pkginfo/            { deny all; }
+    location /report/config.xml   { deny all; }
+    location /var/                { deny all; }
+
+    ## Disable .htaccess and other hidden files
+    location  /.
+    {
+        return 404;
+    }
+
+    ## Magento uses a common front handler
+    location @handler
+    {
+        rewrite / /index.php;
+    }
+    
+    ## Forward paths like /js/index.php/x.js to relevant handler
+    location ~ .php/
+    {
+        rewrite ^(.*.php)/ $1 last;
+    }
+
+    ## Execute PHP scripts
+    location ~ .php$
+    {
+        ## Catch 404s that try_files miss
+        if (!-e $request_filename) { 
+            rewrite / /index.php last;
+        }             
+            
+        expires off; ## Do not cache dynamic content
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        #fastcgi_read_timeout 1500;
+        #fastcgi_param MAGE_RUN_CODE default; ## Store code is defined in administration > Configuration > Manage Stores
+        #fastcgi_param MAGE_RUN_TYPE store;
+        fastcgi_param HTTPS $httpss;
+        fastcgi_buffer_size 32k;
+        fastcgi_buffers 4 32k;
+        include fastcgi_params; ## See /etc/nginx/fastcgi_params
+    }
+}

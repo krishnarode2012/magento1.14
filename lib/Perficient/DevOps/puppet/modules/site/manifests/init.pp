@@ -12,13 +12,13 @@ class site {
     
     file { 'create-virtualhost':
         ensure => 'file',        
-        path => "/etc/httpd/conf.d/${PROJECT}-${ENVIRONMENT}.local.conf",
-        content => template('site/virtualhost.erb'),
+        path => "/etc/nginx/conf.d/${PROJECT}-${ENVIRONMENT}.local.conf",
+        content => template('site/virtualhost.conf.erb'),
         require => File["/var/www/${PROJECT}-${ENVIRONMENT}.local"]
 	}
     
-    exec { 'reload-apache':
-        command => 'sudo service httpd reload',    
+    exec { 'reload-nginx':
+        command => 'sudo service nginx reload',    
         path => ['/usr/bin', '/usr/sbin', '/bin'],
         require => File['create-virtualhost']
     }
@@ -26,8 +26,8 @@ class site {
     file { 'create-database-and-user-sql':
 	    ensure => 'file',
         path => '/tmp/create_database_and_user.sql',
-	    content => template('site/create_database_and_user.erb'),
-        require => Exec['reload-apache']
+	    content => template('site/create_database_and_user.sql.erb'),
+        require => Exec['reload-nginx']
 	}
     
     exec { 'create-database-and-user':
