@@ -2,7 +2,7 @@ $PROJECT = 'magento'
 $ENVIRONMENT = 'dev'
 $COMMON_PASSWORD = 'mag3nt0'
 
-if ($LOCATION != 'NGP') {
+if ($LOCATION != '') and ($LOCATION != 'NGP') {
     $GIT_SERVER_IP = '115.113.227.137'
     $REPO_MIRROR_BASE_URL = 'http://hub.dcs.perficient.com/vagrant/mirrors/'
     $SCP_HOST = 'hub.dcs.perficient.com'

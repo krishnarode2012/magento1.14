@@ -4,11 +4,18 @@ class system {
         path => ['/usr/bin', '/usr/sbin', '/bin']
     }
     
+    file { 'setup-centos-repo-mirror':
+        ensure => 'file',        
+        path => '/etc/yum.repos.d/CentOS-Base.repo',
+        content => template('system/CentOS-Base.repo.erb'),
+        require => Exec['git-host-entry']
+	}
+    
     file { 'setup-ius-repo-mirror':
         ensure => 'file',        
         path => '/etc/yum.repos.d/ius.repo',
         content => template('system/ius.repo.erb'),
-        require => Exec['git-host-entry']
+        require => File['setup-centos-repo-mirror']
 	}
     
     file { 'setup-epel-repo-mirror':
