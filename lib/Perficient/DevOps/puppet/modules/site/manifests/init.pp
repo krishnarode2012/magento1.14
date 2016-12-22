@@ -39,6 +39,7 @@ class site {
 	exec { 'download-code-package':
         command => "sudo sshpass -p '${SCP_PASS}' scp -o \"StrictHostKeyChecking no\" ${SCP_USER}@${SCP_HOST}:/home/magento/releases/${MAGENTO_VERSION}/${CODE_PACKAGE} /tmp",    
         path => ['/usr/bin', '/usr/sbin', '/bin'],
+		timeout => 3600,
         require => Exec['create-database-and-user']
     }
     

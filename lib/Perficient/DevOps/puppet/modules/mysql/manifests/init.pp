@@ -1,7 +1,7 @@
 class mysql {
     package { 'mysql':
         ensure => 'present',
-        require => Package['php55u-intl']
+        require => Package['php56u-intl']
     }
     
     package { 'mysql-server':

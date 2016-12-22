@@ -10,49 +10,49 @@ class php {
     }
     
     exec { 'upgrade-php':
-        command => "sudo yum -y replace php --replace-with php55u",    
+        command => "sudo yum -y replace php --replace-with php56u",    
         path => ['/usr/bin', '/usr/sbin', '/bin'],
         require => Package['php-fpm']
     }
     
-    package { 'php55u-mysqlnd':
+    package { 'php56u-mysqlnd':
         ensure => 'present',
         require => Exec['upgrade-php']
     }
     
-    package { 'php55u-pdo':
+    package { 'php56u-pdo':
         ensure => 'present',
-        require => Package['php55u-mysqlnd']
+        require => Package['php56u-mysqlnd']
     }
     
-    package { 'php55u-mbstring':
+    package { 'php56u-mbstring':
         ensure => 'present',
-        require => Package['php55u-pdo']
+        require => Package['php56u-pdo']
     }
     
-    package { 'php55u-mcrypt':
+    package { 'php56u-mcrypt':
         ensure => 'present',
-        require => Package['php55u-mbstring']
+        require => Package['php56u-mbstring']
     }
     
-    package { 'php55u-gd':
+    package { 'php56u-gd':
         ensure => 'present',
-        require => Package['php55u-mcrypt']
+        require => Package['php56u-mcrypt']
     }
     
-    package { 'php55u-soap':
+    package { 'php56u-soap':
         ensure => 'present',
-        require => Package['php55u-gd']
+        require => Package['php56u-gd']
     }
     
-    package { 'php55u-intl':
+    package { 'php56u-intl':
         ensure => 'present',
-        require => Package['php55u-soap']
+        require => Package['php56u-soap']
     }
     
     service { 'php-fpm':
         enable => 'true',
         ensure  => 'running',
-        require => Package['php55u-intl']
+        require => Package['php56u-intl']
     }
 }
