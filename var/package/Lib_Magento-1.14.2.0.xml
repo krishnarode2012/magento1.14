@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Lib_Magento</name>
+    <version>1.14.2.0</version>
+    <stability>stable</stability>
+    <license uri="http://www.magentocommerce.com/license/enterprise-edition">Magento Enterprise Edition</license>
+    <channel>enterprise</channel>
+    <extends/>
+    <summary>Magento Library</summary>
+    <description>Magento Library</description>
+    <notes>1.14.2.0</notes>
+    <authors><author><name>Magento Enterprise Team</name><user>core</user><email>core@magentocommerce.com</email></author></authors>
+    <date>2015-04-18</date>
+    <time>22:23:29</time>
+    <contents><target name="magelib"><dir name="Magento"><dir name="Autoload"><file name="ClassMap.php" hash="96b3a28418f2de97c682b1c257eaa82f"/><file name="IncludePath.php" hash="faf67ab271a53611874a13de70733209"/><file name="Simple.php" hash="2de285461ae418d615f477df45eb37cf"/></dir><file name="Crypt.php" hash="1cae41a7efa0f0fcbeef765f8fa52c4a"/><dir name="Db"><dir name="Adapter"><dir name="Pdo"><file name="Mysql.php" hash="48ade1a0e3ddddc47463f8e3dc8b338b"/></dir></dir><dir name="Object"><file name="Interface.php" hash="242030f443b5d1d90d41359135648b18"/><file name="Table.php" hash="8bbc8689e947808502079cfa3e8237e3"/><file name="Trigger.php" hash="97c95344e37ca020beb27d70a52fd804"/><file name="View.php" hash="f7db4aa399d527f295cfd8ea09e068d7"/></dir><file name="Object.php" hash="e3eefbc97566461282f92b39847b866f"/><dir name="Sql"><file name="Select.php" hash="8808a0ebe7ee1b9eba0f5298b54c0e5e"/><file name="Trigger.php" hash="d5f4d740cbb5098a25d7b09190a99a61"/></dir></dir><file name="Exception.php" hash="86e1df9d0aa298097c2ec6a0f6d906e7"/><dir name="Profiler"><dir name="Output"><file name="Csvfile.php" hash="eb6636cf420382cc460b97d9868136ea"/><file name="Firebug.php" hash="9135094db4c7ba6f4e43f090f1386d07"/><file name="Html.php" hash="da395ec4c68a450a938c79fc99ddcfe2"/></dir><file name="OutputAbstract.php" hash="bdac00ef7fc816dde95086eb29a42cc9"/></dir><file name="Profiler.php" hash="7d95c5e7db4d8f05902daceae963a3af"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Lib_Js_Enterprise</name>
+    <version>1.14.2.0</version>
+    <stability>stable</stability>
+    <license uri="http://www.magentocommerce.com/license/enterprise-edition">Magento Enterprise Edition</license>
+    <channel>enterprise</channel>
+    <extends/>
+    <summary>Javascript Libraries for Magento Enterprise</summary>
+    <description>Javascript Libraries for Magento Enterprise</description>
+    <notes>1.14.2.0</notes>
+    <authors><author><name>Magento Enterprise Team</name><user>core</user><email>core@magentocommerce.com</email></author></authors>
+    <date>2015-04-19</date>
+    <time>05:24:59</time>
+    <contents><target name="mageweb"><dir name="js"><dir name="enterprise"><dir name="adminhtml"><file name="addbysku.js" hash="9c753d7f27a919a599fb974c634ecf04"/><file name="catalogpermissions-config.js" hash="004b886c7731f54e0de11073f71f1340"/><file name="catalogpermissions.js" hash="e8e453521f41264f57dce46a2a9539e8"/><file name="checkout.js" hash="dffbe9c20b912fade33062888dc8d526"/><file name="cms.js" hash="65bbe65809b9d68493c0cf2972eb02a5"/><file name="rma.js" hash="b4cfc8ed1fec70dd6331609bde59078e"/><file name="staging.js" hash="4eba1255091da04645c8473566f72f31"/><file name="support.js" hash="d7622f9372ddd5927b2db98e4d84edd4"/></dir></dir><dir name="merchandiser"><file name="jquery-ui-1.10.4.min.js" hash="fb4770e78488812ef9f99b7c7484688d"/><file name="jquery.ui.touch-punch.min.js" hash="0e390e86b02e36b6240ef27c01b63a4b"/></dir><dir name="google"><file name="ga.js" hash="008ca8e05dc5a39b3778614b4af2dc6e"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

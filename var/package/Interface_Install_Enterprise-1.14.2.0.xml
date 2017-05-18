@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Interface_Install_Enterprise</name>
+    <version>1.14.2.0</version>
+    <stability>stable</stability>
+    <license uri="http://www.magentocommerce.com/license/enterprise-edition">Magento Enterprise Edition</license>
+    <channel>enterprise</channel>
+    <extends/>
+    <summary>Enterprise Edition interface for Install</summary>
+    <description>Enterprise Edition interface for Install</description>
+    <notes>1.14.2.0</notes>
+    <authors><author><name>Magento Enterprise Team</name><user>core</user><email>core@magentocommerce.com</email></author></authors>
+    <date>2015-04-18</date>
+    <time>22:23:27</time>
+    <contents><target name="magedesign"><dir name="install"><dir name="default"><dir name="enterprise"><dir name="etc"><file name="theme.xml" hash="b6af8fee6ec14dac774a10982c29a472"/></dir><dir name="template"><dir name="install"><file name="state.phtml" hash="8f51b3a6cfcdd2d8d5d0d5926c56c5a1"/></dir><file name="page.phtml" hash="a7147f9a692f4c3a1259a8f050e633d4"/></dir></dir></dir></dir></target><target name="mageskin"><dir name="install"><dir name="default"><dir name="enterprise"><dir name="css"><file name="boxes.css" hash="2fb920302c260f28e2182a6dcddd0989"/><file name="clears.css" hash="42b66dd29eaeeea389ff17a376696c40"/><file name="ie7minus.css" hash="0bfb91c0236e663efb3e0a8db1f6a58d"/><file name="iestyles.css" hash="8957dc9598727687f819a9106f0643c5"/><file name="reset.css" hash="7cc685df2313e9bc9abd414fec6aaca7"/></dir><dir name="images"><file name="bkg_block.gif" hash="df355007ee78db8a33c4e542594fe3f2"/><file name="bkg_cols.gif" hash="c7ac187148d54d16d24ce7c96042a37d"/><file name="bkg_input.gif" hash="422e6aa6b68a457ea631b42bc2ee32a4"/><file name="bkg_page-title.gif" hash="a50193e8c279311f1651df27ab233f44"/><file name="i_notice.gif" hash="ebd56dc80b8346e10e93628bc0e6c372"/><file name="logo.gif" hash="f4362b0e8f923227c02a51392b269ab6"/><file name="validation_advice_bg.gif" hash="b85432906de8985a8b14eeb2dc652d3c"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php><package><name>Mage_Core_Modules</name><channel>enterprise</channel><min>1.14.2.0</min><max>1.14.2.0</max></package></required></dependencies>
+</package>
