@@ -85,9 +85,11 @@ class Perficient_Contact_Adminhtml_ContactController extends Mage_Adminhtml_Cont
 				if ($post_data) {
 
 					try {
-
-						
-
+						if($this->getRequest()->getParam("id")){
+							$post_data['create_time'] = Mage::getModel('core/date')->gmtDate('Y-m-d H:i:s');
+						}
+						$post_data['update_time'] = Mage::getModel('core/date')->gmtDate('Y-m-d H:i:s');
+						Mage::getModel('core/date')->gmtDate();
 						$model = Mage::getModel("contact/contact")
 						->addData($post_data)
 						->setId($this->getRequest()->getParam("id"))

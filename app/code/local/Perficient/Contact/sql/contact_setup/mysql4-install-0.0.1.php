@@ -15,7 +15,6 @@ primary key(id));
 SQLTEXT;
 
 $installer->run($sql);*/
-
 $table = $installer->getConnection()
     ->newTable($installer->getTable('contact/contact'))
     ->addColumn(

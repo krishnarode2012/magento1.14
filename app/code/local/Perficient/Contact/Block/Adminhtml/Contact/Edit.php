@@ -9,8 +9,8 @@ class Perficient_Contact_Block_Adminhtml_Contact_Edit extends Mage_Adminhtml_Blo
 				$this->_objectId = "id";
 				$this->_blockGroup = "contact";
 				$this->_controller = "adminhtml_contact";
-				$this->_updateButton("save", "label", Mage::helper("contact")->__("Save Item"));
-				$this->_updateButton("delete", "label", Mage::helper("contact")->__("Delete Item"));
+				$this->_updateButton("save", "label", Mage::helper("contact")->__("Save Contact Detail"));
+				$this->_updateButton("delete", "label", Mage::helper("contact")->__("Delete Contact Detail"));
 
 				$this->_addButton("saveandcontinue", array(
 					"label"     => Mage::helper("contact")->__("Save And Continue Edit"),
@@ -30,14 +30,14 @@ class Perficient_Contact_Block_Adminhtml_Contact_Edit extends Mage_Adminhtml_Blo
 
 		public function getHeaderText()
 		{
-				if( Mage::registry("contact_data") && Mage::registry("contact_data")->getId() ){
+				if( Mage::registry("contact_data") && Mage::registry("contact_data")->getName() ){
 
-				    return Mage::helper("contact")->__("Edit Item '%s'", $this->htmlEscape(Mage::registry("contact_data")->getId()));
+				    return Mage::helper("contact")->__("Edit Contact Detail '%s'", $this->htmlEscape(Mage::registry("contact_data")->getId()));
 
 				} 
 				else{
 
-				     return Mage::helper("contact")->__("Add Item");
+				     return Mage::helper("contact")->__("Add Contact Detail");
 
 				}
 		}
