@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Perficient_HelloWorld>
+            <version>1.0.0</version>
+        </Perficient_HelloWorld>
+    </modules>
+    <global>
+        <blocks>
+            <helloworld>
+                <class>Perficient_HelloWorld_Block</class>
+            </helloworld>
+        </blocks>
+        <helpers>
+            <helloworld>
+                <class>Perficient_HelloWorld_Helper</class>
+            </helloworld>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <helloworld>
+                <use>standard</use>
+                <args>
+                    <module>Perficient_HelloWorld</module>
+                    <frontName>helloworld</frontName>
+                </args>
+            </helloworld>
+        </routers>
+        <layout>
+            <updates>
+                <helloworld>
+                    <file>helloworld.xml</file>
+                </helloworld>
+            </updates>
+        </layout>
+    </frontend>
+</config>

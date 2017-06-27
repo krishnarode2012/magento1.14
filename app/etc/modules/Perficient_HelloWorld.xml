@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Perficient_HelloWorld>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Perficient_HelloWorld>
+    </modules>
+</config>
