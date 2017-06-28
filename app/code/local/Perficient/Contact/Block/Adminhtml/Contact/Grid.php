@@ -86,8 +86,8 @@ class Perficient_Contact_Block_Adminhtml_Contact_Grid extends Mage_Adminhtml_Blo
 	static public function getStatusOption()
 	{
 		$data_array=array();
-		$data_array[0]='In Active';
-		$data_array[1]='Active';
+		$data_array[0]='Unread (New) ';
+		$data_array[1]='Read (Old)';
 		return($data_array);
 	}
 	static public function getStatusOptionValue()

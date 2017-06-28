@@ -39,8 +39,6 @@ $table = $installer->getConnection()
     ->addColumn('update_time', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(), 'Update date/time');
 
 $installer->getConnection()->createTable($table);
-//demo 
-//Mage::getModel('core/url_rewrite')->setId(null);
-//demo 
+
 $installer->endSetup();
 	 
