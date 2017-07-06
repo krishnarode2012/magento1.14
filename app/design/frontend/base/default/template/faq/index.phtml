@@ -1,0 +1,50 @@
+<?php ?>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<div class="page-title">
+    <h1><?php echo Mage::helper('faq')->__('Submit your question.') ?></h1>
+</div>
+<form action="<?php echo $this->getFormActionUrl(); ?>" id="faqForm" method="post">
+    <div class="fieldset">
+        <h2 class="legend"><?php echo Mage::helper('faq')->__('Please fill the form.') ?></h2>
+        <ul class="form-list">
+            <li class="fields">
+                <div class="field">
+                    <label for="name" class="required"><em>*</em><?php echo Mage::helper('faq')->__('Name') ?></label>
+                    <div class="input-box">
+                        <input name="name" id="name" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('faq')->__('Name')) ?>" value="" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="email" class="required"><em>*</em><?php echo Mage::helper('faq')->__('Email') ?></label>
+                    <div class="input-box">
+                        <input name="email" id="email" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('faq')->__('Email')) ?>" value="" class="input-text required-entry validate-email" type="text" />
+                    </div>
+                </div>
+            </li>
+            <li>
+                <label for="telephone"><?php echo Mage::helper('faq')->__('Telephone') ?></label>
+                <div class="input-box">
+                    <input name="telephone" id="telephone" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('faq')->__('Telephone')) ?>" value="" class="input-text" type="text" />
+                </div>
+            </li>
+            <li class="wide">
+                <label for="question" class="required"><em>*</em><?php echo Mage::helper('faq')->__('Question box') ?></label>
+                <div class="input-box">
+                    <textarea name="question" id="question" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('faq')->__('Question box')) ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="buttons-set">
+        <p class="required"><?php echo Mage::helper('faq')->__('* Required Fields') ?></p>
+        <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+        <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('faq')->__('Submit')) ?>" class="button"><span><span><?php echo Mage::helper('faq')->__('Submit') ?></span></span></button>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('faqForm', true);
+//]]>
+</script>
+
+<h1><?php /*echo "This ".__FILE__.' File belons to the '.get_class($this).' class.' */?></h1>
